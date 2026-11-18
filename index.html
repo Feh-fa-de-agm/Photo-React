@@ -8,24 +8,85 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <h1>Photo React</h1>
-    <p>Compartilhe seus momentos.</p>
+    <h1>PHOTO REACT</h1>
+    <p>Your photos. Your reactions.</p>
   </header>
 
   <main>
-    <section class="create">
+    <nav class="dashboard">
+
+      <div class="side">
+        <button class="tile" onclick="openCreator()">
+          <span>＋</span>
+          <small>CRIAR</small>
+        </button>
+
+        <button class="tile" onclick="showFeed()">
+          <span>♡</span>
+          <small>CURTIDAS</small>
+        </button>
+      </div>
+
+      <button class="tile reacting" onclick="showFeed()">
+        <span>◉</span>
+        <small>REACTING</small>
+      </button>
+
+      <div class="side">
+        <button class="tile" onclick="alert('Em breve: seguidores!')">
+          <span>♧</span>
+          <small>SEGUIR</small>
+        </button>
+
+        <button class="tile" onclick="showFeed()">
+          <span>☏</span>
+          <small>COMENTAR</small>
+        </button>
+      </div>
+
+    </nav>
+
+    <section class="creator" id="creator">
       <h2>Nova publicação</h2>
-      <input type="text" id="username" placeholder="Seu nome">
-      <input type="text" id="photo" placeholder="URL da imagem">
-      <textarea id="caption" placeholder="Escreva uma legenda..."></textarea>
-      <button onclick="publish()">Publicar</button>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Seu nome"
+      >
+
+      <label class="upload" for="photo">
+        ＋ Escolher foto da galeria
+      </label>
+
+      <input
+        type="file"
+        id="photo"
+        accept="image/*"
+        hidden
+      >
+
+      <img id="preview" alt="Pré-visualização da foto">
+
+      <textarea
+        id="caption"
+        placeholder="Escreva uma legenda..."
+      ></textarea>
+
+      <button class="publish" onclick="publish()">
+        PUBLICAR
+      </button>
     </section>
 
-    <section>
+    <section class="feed" id="feed">
       <h2>Feed</h2>
-      <div id="feed"></div>
+      <div id="posts">
+        <p class="empty">Ainda não existem publicações.</p>
+      </div>
     </section>
+
   </main>
 
   <script src="script.js"></script>
